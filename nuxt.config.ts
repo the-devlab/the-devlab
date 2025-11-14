@@ -1,4 +1,15 @@
 export default defineNuxtConfig({
+    runtimeConfig: {
+        sanityToken: process.env.SANITY_API_TOKEN || "",
+        public: {
+            sanityProjectId:
+                process.env.NUXT_PUBLIC_SANITY_PROJECT_ID || "o9tmumau",
+            sanityDataset:
+                process.env.NUXT_PUBLIC_SANITY_DATASET || "production",
+            sanityApiVersion:
+                process.env.NUXT_PUBLIC_SANITY_API_VERSION || "2025-11-09",
+        },
+    },
     alias: {
         "@app": "~/app",
         "@assets": "~/assets",

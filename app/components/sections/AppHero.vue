@@ -1,8 +1,17 @@
 <script setup lang="ts">
-import { sanity } from "@/utils/sanity";
+import { createSanityClient } from "@/utils/sanity";
 import { mainQuery } from "@/utils/queries/homePage";
 
-const data = await sanity.fetch(mainQuery);
+const config = useRuntimeConfig();
+const sanity = createSanityClient(config);
+
+const { data, error } = await useAsyncData("homepage", () =>
+    sanity.fetch(mainQuery)
+);
+
+if (error.value) {
+    console.error("Error fetching Sanity data:", error.value);
+}
 </script>
 
 <template>
