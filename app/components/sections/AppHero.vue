@@ -15,7 +15,8 @@ if (error.value) {
 </script>
 
 <template>
-    <UContainer
+    <Button label="Verify" />
+    <div
         id="hero"
         class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-700"
     >
@@ -29,5 +30,5 @@ if (error.value) {
                 {{ data?.content }}
             </p>
         </div>
-    </UContainer>
+    </div>
 </template>

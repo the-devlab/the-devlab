@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-    <UFooter>
+    <!-- <footer>
         <template #left>
             <p class="text-muted text-sm">
                 © the-devlab
                 {{ new Date().getFullYear() }}
             </p>
         </template>
-    </UFooter>
+    </footer> -->
 </template>

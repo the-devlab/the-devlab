@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-    <UCard>
+    <!-- <div>
         <template #header> header </template>
         <p>about</p>
         <template #footer> footer </template>
-    </UCard>
+    </div> -->
 </template>

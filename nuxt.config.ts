@@ -1,4 +1,10 @@
+import Aura from "@primeuix/themes/aura";
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
+    vite: {
+        plugins: [tailwindcss()],
+    },
     runtimeConfig: {
         sanityToken: process.env.SANITY_API_TOKEN || "",
         public: {
@@ -47,7 +53,14 @@ export default defineNuxtConfig({
     devtools: {
         enabled: true,
     },
-    modules: ["@nuxt/ui"],
+    modules: ["@primevue/nuxt-module"],
+    primevue: {
+        options: {
+            theme: {
+                preset: Aura,
+            },
+        },
+    },
     css: ["~/assets/css/main.css"],
     vue: {
         propsDestructure: true,

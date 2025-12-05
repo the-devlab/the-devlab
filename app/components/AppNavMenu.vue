@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const items = ref(["1", "2", "3"]);
-</script>
+<script setup lang="ts"></script>
 
-<template>
-    <!-- <UNavigationMenu :items="items" /> -->
-</template>
+<template></template>

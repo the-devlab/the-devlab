@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@nuxt/ui";
+@import "tailwindcss-primeui";
 
 @theme static {
     --font-sans: "Montserrat", sans-serif;
