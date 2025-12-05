@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-    <UForm id="contact">
+    <!-- <div id="contact">
         <h1>Get in touch</h1>
-        <!-- <UForm
+         <form
             :schema="schema"
             :state="state"
             class="space-y-4"
@@ -17,7 +17,7 @@
                 <UInput v-model="state.password" type="password" />
             </UFormField>
 
-            <UButton type="submit"> Submit </UButton>
-        </UForm> -->
-    </UForm>
+            <Button type="submit"> Submit </Button>
+        </form>
+    </div> -->
 </template>

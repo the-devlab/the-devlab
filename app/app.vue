@@ -22,13 +22,13 @@ useHead({
     <UApp>
         <NuxtRouteAnnouncer />
         <AppHeader />
-        <UMain>
-            <AppHero />
-            <!-- <AppAbout /> -->
-            <!-- <AppInfo /> -->
-            <!-- <AppTestimonials /> -->
-            <!-- <AppContactForm /> -->
-        </UMain>
+        <!-- <UMain> -->
+        <AppHero />
+        <!-- <AppAbout /> -->
+        <!-- <AppInfo /> -->
+        <!-- <AppTestimonials /> -->
+        <!-- <AppContactForm /> -->
+        <!-- </UMain> -->
         <AppFooter />
     </UApp>
 </template>
