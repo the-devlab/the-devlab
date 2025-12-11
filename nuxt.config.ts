@@ -4,6 +4,11 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
     vite: {
         plugins: [tailwindcss()],
+        server: {
+            watch: {
+                usePolling: true,
+            },
+        },
     },
     runtimeConfig: {
         sanityToken: process.env.SANITY_API_TOKEN || "",
@@ -53,7 +58,12 @@ export default defineNuxtConfig({
     devtools: {
         enabled: true,
     },
-    modules: ["@primevue/nuxt-module"],
+    modules: ["@primevue/nuxt-module", "@nuxtjs/google-fonts"],
+    googleFonts: {
+        families: {
+            Montserrat: [400, 500, 600, 700],
+        },
+    },
     primevue: {
         options: {
             theme: {
