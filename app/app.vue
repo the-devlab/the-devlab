@@ -1,4 +1,8 @@
 <script setup lang="ts">
+const { data: sanityData } = await useSanityData();
+
+provide("sanityData", sanityData);
+
 useSeoMeta({
     title: "the-devlab - Welcome to the the-devlab",
     description: "Your site description here.",
@@ -19,18 +23,14 @@ useHead({
 </script>
 
 <template>
-    <UApp>
-        <NuxtRouteAnnouncer />
-        <AppHeader />
-        <!-- <UMain> -->
-        <AppHero />
-        <!-- <AppAbout /> -->
-        <!-- <AppInfo /> -->
-        <!-- <AppTestimonials /> -->
-        <!-- <AppContactForm /> -->
-        <!-- </UMain> -->
-        <AppFooter />
-    </UApp>
+    <NuxtRouteAnnouncer />
+    <AppHeader />
+    <AppHero />
+    <AppJourney />
+    <AppToolkit />
+    <AppTestimonials />
+    <AppContact />
+    <AppFooter />
 </template>
 
 <style lang="scss">
