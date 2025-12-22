@@ -1,39 +1,17 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import Menubar from "primevue/menubar";
-
-const navItems = ref([
-    {
-        label: "Intro",
-        to: "#intro",
-        icon: "pi pi-user",
-    },
-    {
-        label: "My Tool Kit",
-        to: "#mytoolkit",
-        icon: "pi pi-wrench",
-    },
-    {
-        label: "Testimonials",
-        to: "#testimonials",
-        icon: "pi pi-comment",
-    },
-    {
-        label: "Contact",
-        to: "#contact",
-        icon: "pi pi-envelope",
-    },
-]);
+import { navItems } from "@/data/navigation";
 </script>
 
 <template>
-    <Menubar :model="navItems" class="justify-between">
+    <Menubar :model="navItems" class="justify-between !bg-transparent">
         <template #start>
-            <img
-                src="@/assets/images/the-devlab-logo.png"
-                alt="the-devlab logo"
-                class="h-6 w-auto px-2"
-            />
+            <a href="/" title="the-devlab">
+                <img
+                    src="@/assets/images/the-devlab-logo.png"
+                    alt="the-devlab logo"
+                    class="h-6 w-auto px-2"
+            /></a>
             <h2 class="text-2xl">the-devlab</h2>
         </template>
 

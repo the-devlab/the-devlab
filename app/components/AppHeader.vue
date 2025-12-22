@@ -1,7 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-    <header>
+    <header class="bg-gray-50">
         <AppMenuBar />
     </header>
 </template>

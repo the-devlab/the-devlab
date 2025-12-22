@@ -5,8 +5,8 @@ export const createSanityClient = (config) => {
         projectId: config.public.sanityProjectId,
         dataset: config.public.sanityDataset,
         apiVersion: config.public.sanityApiVersion,
-        token: config.sanityToken,
-        useCdn: false,
+        token: config.sanityToken || undefined,
+        useCdn: !config.sanityToken,
         perspective: "published",
     });
 };

@@ -5,7 +5,7 @@ const data = inject<Ref<any>>("sanityData");
 <template>
     <div
         id="hero"
-        class="relative min-h-[70vh] md:h-[70vh] flex items-center justify-center py-16 md:py-0"
+        class="relative min-h-[70vh] flex items-center justify-center py-16"
     >
         <div
             class="absolute inset-0 bg-cover bg-center"
@@ -16,22 +16,22 @@ const data = inject<Ref<any>>("sanityData");
 
         <div class="absolute inset-0 bg-cyan-800/80"></div>
 
-        <div class="relative z-10 text-center text-white px-6 lg:px-12 max-w-7xl">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+        <div class="relative text-center text-white px-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl mb-4 font-bold">
                 {{ data?.heroHeading }}
             </h1>
             <p
-                class="text-base sm:text-lg md:text-xl leading-relaxed mb-6 md:mb-8 opacity-90"
+                class="text-xl leading-relaxed mb-6 opacity-90 max-w-5xl mx-auto"
                 v-html="data?.heroContext"
             />
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                    as="a"
-                    href="#contact"
-                    label="Contact"
-                    icon="pi pi-envelope"
-                />
-            </div>
+
+            <Button
+                v-if="data?.heroButton"
+                as="a"
+                :href="data?.heroButton.link"
+                :label="data?.heroButton.label"
+                :icon="`pi pi-${data?.heroButton.icon}`"
+            />
         </div>
     </div>
 </template>
