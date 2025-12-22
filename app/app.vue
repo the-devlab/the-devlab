@@ -4,21 +4,19 @@ const { data: sanityData } = await useSanityData();
 provide("sanityData", sanityData);
 
 useSeoMeta({
-    title: "the-devlab - Welcome to the the-devlab",
-    description: "Your site description here.",
+    title: sanityData.value.seoTitle,
+    description: sanityData.value.seoDescription,
 
-    // Open Graph (Facebook, LinkedIn, WhatsApp, etc.)
-    ogTitle: "the-devlab",
-    ogDescription: "Your site description here.",
-    ogImage: "https://yoursite.com/og-image.png",
+    // Open Graph (LinkedIn, WhatsApp, Slack, Discord, etc.)
+    ogTitle: sanityData.value.seoTitle,
+    ogDescription: sanityData.value.seoDescription,
+    ogImage: "https://the-devlab.com/og-image.png",
     ogUrl: "https://the-devlab.com",
+    ogType: "website",
 
     twitterCard: "summary_large_image",
-});
-
-useHead({
-    htmlAttrs: { lang: "en" },
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    twitterTitle: sanityData.value.seoTitle,
+    twitterDescription: sanityData.value.seoDescription,
 });
 </script>
 
@@ -26,7 +24,7 @@ useHead({
     <NuxtRouteAnnouncer />
     <AppHeader />
     <AppHero />
-    <AppJourney />
+    <AppAbout />
     <AppToolkit />
     <AppTestimonials />
     <AppContact />

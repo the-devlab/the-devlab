@@ -1,10 +1,41 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { navItems } from "@/data/navigation";
+
+const currentYear = new Date().getFullYear();
+</script>
 
 <template>
-    <footer>
-        <p>
-            © the-devlab
-            {{ new Date().getFullYear() }}
-        </p>
+    <footer class="bg-gray-50 border-t border-gray-200">
+        <div class="px-6 py-4">
+            <div class="max-w-6xl mx-auto">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6"
+                >
+                    <div class="flex items-center gap-3">
+                        <img
+                            src="@/assets/images/the-devlab-logo.png"
+                            alt="the-devlab logo"
+                            class="h-6 w-auto"
+                        />
+                        <span class="text-gray-600 text-sm">
+                            © {{ currentYear }} the-devlab
+                        </span>
+                    </div>
+
+                    <nav class="flex gap-4 md:gap-6">
+                        <a
+                            v-for="link in navItems"
+                            :key="link.label"
+                            :href="link.to"
+                            :title="link.label"
+                            class="text-gray-600 hover:text-cyan-800 transition-colors text-sm"
+                        >
+                            {{ link.label }}
+                        </a>
+                    </nav>
+                    <AppSocials />
+                </div>
+            </div>
+        </div>
     </footer>
 </template>

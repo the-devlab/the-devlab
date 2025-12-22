@@ -22,14 +22,15 @@ export default defineNuxtConfig({
         },
     },
     alias: {
-        "@app": "~/app",
-        "@assets": "~/assets",
-        "@components": "~/components",
-        "@composables": "~/composables",
-        "@utils": "~/utils",
+        "@app": "./app",
+        "@assets": "./app/assets",
+        "@components": "./app/components",
+        "@composables": "./app/composables",
+        "@utils": "./app/utils",
     },
     app: {
         head: {
+            htmlAttrs: { lang: "en" },
             link: [
                 { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
                 { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
