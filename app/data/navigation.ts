@@ -1,4 +1,6 @@
-export const navItems = [
+import type { NavItems } from "@/types/types";
+
+export const navItems: NavItems[] = [
     {
         label: "About",
         to: "#about",
