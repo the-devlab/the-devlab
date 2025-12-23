@@ -1,7 +1,9 @@
 <script setup lang="ts">
-const { data: sanityData } = await useSanityData();
+const { language } = useLanguage();
+const { data: sanityData } = await useSanityData(language);
 
 provide("sanityData", sanityData);
+provide("language", language);
 
 useSeoMeta({
     title: sanityData.value.seoTitle,

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { navItems } from "@/data/navigation";
+import { languages } from "@/data/languages";
 
+const { language } = useLanguage();
 const currentYear = new Date().getFullYear();
 </script>
 
@@ -33,6 +35,15 @@ const currentYear = new Date().getFullYear();
                             {{ link.label }}
                         </a>
                     </nav>
+
+                    <Select
+                        v-model="language"
+                        :options="languages"
+                        optionLabel="name"
+                        optionValue="code"
+                        size="small"
+                    />
+
                     <AppSocials />
                 </div>
             </div>
