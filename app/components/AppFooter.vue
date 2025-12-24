@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { navItems } from "@/data/navigation";
+import { useNavItems } from "@/data/navigation";
 import { languages } from "@/data/languages";
 
+const appConfig = useAppConfig();
+const { t } = useTranslations();
+const { navItems } = useNavItems();
 const { language } = useLanguage();
 const currentYear = new Date().getFullYear();
 </script>
@@ -15,12 +18,12 @@ const currentYear = new Date().getFullYear();
                 >
                     <div class="flex items-center gap-3">
                         <img
-                            src="@/assets/images/the-devlab-logo.png"
-                            alt="the-devlab logo"
+                            :src="appConfig.site.logo"
+                            :alt="`${appConfig.site.name} ${t('misc.logo')}`"
                             class="h-6 w-auto"
                         />
                         <span class="text-gray-600 text-sm">
-                            © {{ currentYear }} the-devlab
+                            © {{ currentYear }} {{ appConfig.site.name }}
                         </span>
                     </div>
 

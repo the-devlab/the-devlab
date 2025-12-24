@@ -3,16 +3,17 @@ import { useToast } from "primevue/usetoast";
 
 const data = inject<Ref<any>>("sanityData");
 const toast = useToast();
+const { t } = useTranslations();
 
 const contactData = computed(() => [
     {
-        label: "Email",
+        label: t("contact.email"),
         icon: "envelope",
         value: data?.value?.contactEmail,
         href: `mailto:${data?.value?.contactEmail}`,
     },
     {
-        label: "Location",
+        label: t("contact.location"),
         icon: "map-marker",
         value: data?.value?.contactLocation,
     },
@@ -33,8 +34,8 @@ const onSubmit = async () => {
     try {
         toast.add({
             severity: "success",
-            summary: "Success",
-            detail: "Your message has been sent!",
+            summary: t("contact.success"),
+            detail: t("contact.successMessage"),
             life: 3000,
         });
 
@@ -46,8 +47,8 @@ const onSubmit = async () => {
     } catch (error) {
         toast.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to send message. Please try again.",
+            summary: t("contact.error"),
+            detail: t("contact.errorMessage"),
             life: 3000,
         });
     } finally {
@@ -120,29 +121,35 @@ const onSubmit = async () => {
                     <Card>
                         <template #content>
                             <form class="space-y-6" @submit.prevent="onSubmit">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div
+                                    class="grid grid-cols-1 md:grid-cols-2 gap-6"
+                                >
                                     <div class="flex flex-col gap-2">
-                                        <label for="name" class="font-medium"
-                                            >Name</label
-                                        >
+                                        <label for="name" class="font-medium">
+                                            {{ t("contact.name") }}
+                                        </label>
                                         <InputText
                                             id="name"
                                             v-model="form.name"
-                                            placeholder="Your name"
+                                            :placeholder="
+                                                t('contact.namePlaceholder')
+                                            "
                                             class="w-full"
                                             required
                                         />
                                     </div>
 
                                     <div class="flex flex-col gap-2">
-                                        <label for="email" class="font-medium"
-                                            >Email</label
-                                        >
+                                        <label for="email" class="font-medium">
+                                            {{ t("contact.email") }}
+                                        </label>
                                         <InputText
                                             id="email"
                                             v-model="form.email"
                                             type="email"
-                                            placeholder="your@email.com"
+                                            :placeholder="
+                                                t('contact.emailPlaceholder')
+                                            "
                                             class="w-full"
                                             required
                                         />
@@ -150,26 +157,30 @@ const onSubmit = async () => {
                                 </div>
 
                                 <div class="flex flex-col gap-2">
-                                    <label for="subject" class="font-medium"
-                                        >Subject</label
-                                    >
+                                    <label for="subject" class="font-medium">
+                                        {{ t("contact.subject") }}
+                                    </label>
                                     <InputText
                                         id="subject"
                                         v-model="form.subject"
-                                        placeholder="Subject of your message"
+                                        :placeholder="
+                                            t('contact.subjectPlaceholder')
+                                        "
                                         class="w-full"
                                         required
                                     />
                                 </div>
 
                                 <div class="flex flex-col gap-2">
-                                    <label for="message" class="font-medium"
-                                        >Message</label
-                                    >
+                                    <label for="message" class="font-medium">
+                                        {{ t("contact.message") }}
+                                    </label>
                                     <Textarea
                                         id="message"
                                         v-model="form.message"
-                                        placeholder="Your message..."
+                                        :placeholder="
+                                            t('contact.messagePlaceholder')
+                                        "
                                         rows="5"
                                         class="w-full"
                                         required
@@ -179,7 +190,7 @@ const onSubmit = async () => {
                                 <div class="flex justify-end">
                                     <Button
                                         type="submit"
-                                        label="Send Message"
+                                        :label="t('contact.sendMessage')"
                                         icon="pi pi-send"
                                         :loading="isSubmitting"
                                     />

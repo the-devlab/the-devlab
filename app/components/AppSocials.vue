@@ -1,13 +1,15 @@
 <script setup lang="ts">
+const appConfig = useAppConfig();
+
 const socialLinks = [
     {
         icon: "pi pi-github",
-        href: "https://github.com/the-devlab",
+        href: appConfig.site.github,
         label: "GitHub",
     },
     {
         icon: "pi pi-linkedin",
-        href: "https://www.linkedin.com/in/ghatzi/",
+        href: appConfig.site.linkedIn,
         label: "LinkedIn",
     },
 ];

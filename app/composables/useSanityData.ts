@@ -6,7 +6,7 @@ export const useSanityData = async (lang: Ref<string> | string) => {
     const langValue = isRef(lang) ? lang : ref(lang);
 
     const { data, error, refresh } = await useAsyncData(
-        `sanity-main`,
+        `sanity-main-${langValue.value}`,
         () => {
             const config = useRuntimeConfig();
             const sanity = createSanityClient(config);
