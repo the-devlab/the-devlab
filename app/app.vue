@@ -1,9 +1,15 @@
 <script setup lang="ts">
+onMounted(() => {
+    document.documentElement.classList.add("hydrated");
+});
+
 const { language } = useLanguage();
 const { data: sanityData } = await useSanityData(language);
 
 provide("sanityData", sanityData);
 provide("language", language);
+
+const appConfig = useAppConfig();
 
 useSeoMeta({
     title: sanityData.value.seoTitle,
@@ -12,8 +18,8 @@ useSeoMeta({
     // Open Graph (LinkedIn, WhatsApp, Slack, Discord, etc.)
     ogTitle: sanityData.value.seoTitle,
     ogDescription: sanityData.value.seoDescription,
-    ogImage: "https://the-devlab.com/og-image.png",
-    ogUrl: "https://the-devlab.com",
+    ogImage: `${appConfig.site.url}/og-image.png`,
+    ogUrl: appConfig.site.url,
     ogType: "website",
 
     twitterCard: "summary_large_image",

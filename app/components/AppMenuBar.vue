@@ -1,24 +1,28 @@
 <script setup lang="ts">
 import Menubar from "primevue/menubar";
-import { navItems } from "@/data/navigation";
+import { useNavItems } from "@/data/navigation";
+
+const appConfig = useAppConfig();
+const { t } = useTranslations();
+const { navItems } = useNavItems();
 </script>
 
 <template>
     <Menubar :model="navItems" class="justify-between !bg-transparent">
         <template #start>
-            <a href="/" title="the-devlab">
+            <a href="/" :title="`${appConfig.site.name} ${t('misc.logo')}`">
                 <img
-                    src="@/assets/images/the-devlab-logo.png"
-                    alt="the-devlab logo"
+                    :src="appConfig.site.logo"
+                    :alt="`${appConfig.site.name} ${t('misc.logo')}`"
                     class="h-6 w-auto px-2"
             /></a>
-            <h2 class="text-2xl">the-devlab</h2>
+            <h2 class="text-2xl">{{ appConfig.site.name }}</h2>
         </template>
 
         <template #item="{ item, props }">
             <a
                 :href="item.to"
-                :aria-label="`Navigate to ${item.label} section`"
+                :aria-label="t('navigation.label', { item: item.label as string })"
                 :title="`${item.label}`"
                 v-bind="props.action"
             >
