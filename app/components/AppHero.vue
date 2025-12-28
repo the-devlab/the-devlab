@@ -30,6 +30,7 @@ const data = inject<Ref<any>>("sanityData");
                 as="a"
                 :href="data?.heroButton.link"
                 :label="data?.heroButton.label"
+                :title="data?.heroButton.label"
                 :icon="`pi pi-${data?.heroButton.icon}`"
             />
         </div>

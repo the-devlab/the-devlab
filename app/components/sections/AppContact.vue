@@ -32,6 +32,22 @@ const onSubmit = async () => {
     isSubmitting.value = true;
 
     try {
+        const body = new URLSearchParams({
+            "form-name": "contact",
+            name: form.name,
+            email: form.email,
+            subject: form.subject,
+            message: form.message,
+        });
+
+        await fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body,
+        });
+
         toast.add({
             severity: "success",
             summary: t("contact.success"),
@@ -120,7 +136,21 @@ const onSubmit = async () => {
                 <ClientOnly>
                     <Card>
                         <template #content>
-                            <form class="space-y-6" @submit.prevent="onSubmit">
+                            <form
+                                name="contact"
+                                method="POST"
+                                data-netlify="true"
+                                netlify-honeypot="bot-field"
+                                class="space-y-6"
+                                @submit.prevent="onSubmit"
+                            >
+                                <input
+                                    type="hidden"
+                                    name="form-name"
+                                    value="contact"
+                                />
+                                <input type="hidden" name="bot-field" />
+
                                 <div
                                     class="grid grid-cols-1 md:grid-cols-2 gap-6"
                                 >
@@ -130,6 +160,7 @@ const onSubmit = async () => {
                                         </label>
                                         <InputText
                                             id="name"
+                                            name="name"
                                             v-model="form.name"
                                             :placeholder="
                                                 t('contact.namePlaceholder')
@@ -145,6 +176,7 @@ const onSubmit = async () => {
                                         </label>
                                         <InputText
                                             id="email"
+                                            name="email"
                                             v-model="form.email"
                                             type="email"
                                             :placeholder="
@@ -162,6 +194,7 @@ const onSubmit = async () => {
                                     </label>
                                     <InputText
                                         id="subject"
+                                        name="subject"
                                         v-model="form.subject"
                                         :placeholder="
                                             t('contact.subjectPlaceholder')
@@ -177,6 +210,7 @@ const onSubmit = async () => {
                                     </label>
                                     <Textarea
                                         id="message"
+                                        name="message"
                                         v-model="form.message"
                                         :placeholder="
                                             t('contact.messagePlaceholder')
@@ -191,6 +225,7 @@ const onSubmit = async () => {
                                     <Button
                                         type="submit"
                                         :label="t('contact.sendMessage')"
+                                        :title="t('contact.sendMessage')"
                                         icon="pi pi-send"
                                         :loading="isSubmitting"
                                     />
