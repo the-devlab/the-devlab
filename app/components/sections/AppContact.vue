@@ -90,48 +90,55 @@ const onSubmit = async () => {
             <div
                 class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto items-stretch"
             >
-                <ClientOnly>
-                    <Card>
-                        <template #content>
-                            <div class="flex flex-col items-center gap-8">
-                                <div class="space-y-4 w-full">
+                <Card>
+                    <template #content>
+                        <div class="flex flex-col items-center gap-8">
+                            <div class="space-y-4 w-full">
+                                <div
+                                    v-for="item in contactData"
+                                    :key="item.label"
+                                    class="flex items-center gap-4 p-4 rounded-lg bg-gray-50"
+                                >
                                     <div
-                                        v-for="item in contactData"
-                                        :key="item.label"
-                                        class="flex items-center gap-4 p-4 rounded-lg bg-gray-50"
+                                        class="w-12 h-12 bg-cyan-800/10 rounded-full flex items-center justify-center flex-shrink-0"
                                     >
-                                        <div
-                                            class="w-12 h-12 bg-cyan-800/10 rounded-full flex items-center justify-center flex-shrink-0"
+                                        <i
+                                            class="text-cyan-800 text-xl"
+                                            :class="`pi pi-${item.icon}`"
+                                        ></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">
+                                            {{ item.label }}
+                                        </p>
+                                        <a
+                                            v-if="item.href"
+                                            :href="item.href"
+                                            class="text-gray-700 hover:text-cyan-800 transition-colors font-medium"
                                         >
-                                            <i
-                                                class="text-cyan-800 text-xl"
-                                                :class="`pi pi-${item.icon}`"
-                                            ></i>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-500">
-                                                {{ item.label }}
-                                            </p>
-                                            <a
-                                                v-if="item.href"
-                                                :href="item.href"
-                                                class="text-gray-700 hover:text-cyan-800 transition-colors font-medium"
-                                            >
-                                                {{ item.value }}
-                                            </a>
-                                            <p
-                                                v-else
-                                                class="text-gray-700 font-medium"
-                                            >
-                                                {{ item.value }}
-                                            </p>
-                                        </div>
+                                            {{ item.value }}
+                                        </a>
+                                        <p
+                                            v-else
+                                            class="text-gray-700 font-medium"
+                                        >
+                                            {{ item.value }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </template>
-                    </Card>
-                </ClientOnly>
+                        </div>
+                    </template>
+                </Card>
+
+                <!-- Netlify Forms fallback (required for Nuxt + ClientOnly) -->
+                <form name="contact" method="POST" data-netlify="true" hidden>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <input name="name" />
+                    <input name="email" />
+                    <input name="subject" />
+                    <textarea name="message"></textarea>
+                </form>
 
                 <ClientOnly>
                     <Card>
