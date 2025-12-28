@@ -132,8 +132,16 @@ const onSubmit = async () => {
                 </Card>
 
                 <!-- Netlify Forms fallback (required for Nuxt + ClientOnly) -->
-                <form name="contact" method="POST" data-netlify="true" hidden>
+                <form
+                    name="contact"
+                    method="POST"
+                    netlify
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    class="hidden"
+                >
                     <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="bot-field" />
                     <input name="name" />
                     <input name="email" />
                     <input name="subject" />

@@ -2,6 +2,9 @@ import Aura from "@primeuix/themes/aura";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+    routeRules: {
+        "/": { prerender: true },
+    },
     vite: {
         plugins: [tailwindcss()],
         server: {
