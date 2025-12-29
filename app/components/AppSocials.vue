@@ -8,6 +8,11 @@ const socialLinks = [
         label: "GitHub",
     },
     {
+        icon: "pi pi-instagram",
+        href: appConfig.site.instagram,
+        label: "Instagram",
+    },
+    {
         icon: "pi pi-linkedin",
         href: appConfig.site.linkedIn,
         label: "LinkedIn",
@@ -21,6 +26,7 @@ const socialLinks = [
             v-for="social in socialLinks"
             :key="social.label"
             :href="social.href"
+            :title="social.label"
             target="_blank"
             rel="noopener noreferrer"
             :aria-label="social.label"

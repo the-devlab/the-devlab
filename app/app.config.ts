@@ -5,5 +5,6 @@ export default defineAppConfig({
         logo: "the-devlab-logo.png",
         linkedIn: "https://www.linkedin.com/in/ghatzi/",
         github: "https://github.com/the-devlab",
+        instagram: "https://www.instagram.com/the_devlab/",
     },
 });
