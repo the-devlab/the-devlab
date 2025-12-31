@@ -1,5 +1,5 @@
 export const mainQuery = (
-    lang: string = "en"
+  lang: string = 'en'
 ) => `*[_type == "main" && language == "${lang}"][0] {
     seoTitle,
     seoDescription,

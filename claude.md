@@ -94,25 +94,25 @@ studio/
 
 ### Main Document
 
--   **SEO**: `seoTitle`, `seoDescription`
--   **Hero**: heading, context (rich text), image, button
--   **About**: heading, context, highlights (title, body, icon)
--   **Toolkit**: heading, context, stack (title, tags, icon)
--   **Testimonials**: heading, testimonials (name, quote, avatar)
--   **Contact**: heading, context, email, location
+- **SEO**: `seoTitle`, `seoDescription`
+- **Hero**: heading, context (rich text), image, button
+- **About**: heading, context, highlights (title, body, icon)
+- **Toolkit**: heading, context, stack (title, tags, icon)
+- **Testimonials**: heading, testimonials (name, quote, avatar)
+- **Contact**: heading, context, email, location
 
 ### Avatar Document
 
--   Referenced by testimonials
--   Fields: `name`, `image`
+- Referenced by testimonials
+- Fields: `name`, `image`
 
 ## Features
 
--   **Multi-language**: English (en) and Bulgarian (bg)
--   **SSR**: Server-side rendering for SEO
--   **Responsive**: Mobile-first design
--   **Content-managed**: All content editable via Sanity Studio
--   **Real-time updates**: Changes reflect immediately via Sanity CDN
+- **Multi-language**: English (en) and Bulgarian (bg)
+- **SSR**: Server-side rendering for SEO
+- **Responsive**: Mobile-first design
+- **Content-managed**: All content editable via Sanity Studio
+- **Real-time updates**: Changes reflect immediately via Sanity CDN
 
 ## Development
 
@@ -136,18 +136,18 @@ npm run dev  # http://localhost:3333
 
 ### Web
 
--   `web/nuxt.config.ts` - Nuxt config with Sanity runtime config
--   `web/app/app.vue` - Root component rendering all sections
--   `web/app/composables/useSanityData.ts` - CMS data fetching
--   `web/app/utils/queries/main.ts` - GROQ query for content
+- `web/nuxt.config.ts` - Nuxt config with Sanity runtime config
+- `web/app/app.vue` - Root component rendering all sections
+- `web/app/composables/useSanityData.ts` - CMS data fetching
+- `web/app/utils/queries/main.ts` - GROQ query for content
 
 ### Studio
 
--   `studio/sanity.config.ts` - Sanity Studio setup
--   `studio/schemaTypes/main.ts` - Content schema definition
+- `studio/sanity.config.ts` - Sanity Studio setup
+- `studio/schemaTypes/main.ts` - Content schema definition
 
 ## Environment
 
--   **Sanity Project ID**: `o9tmumau`
--   **Dataset**: `production`
--   **API Version**: `2025-11-09`
+- **Sanity Project ID**: `o9tmumau`
+- **Dataset**: `production`
+- **API Version**: `2025-11-09`

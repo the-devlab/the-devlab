@@ -1,82 +1,80 @@
-import Aura from "@primeuix/themes/aura";
-import tailwindcss from "@tailwindcss/vite";
+import Aura from '@primeuix/themes/aura';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineNuxtConfig({
-    routeRules: {
-        "/": { prerender: true },
-    },
-    vite: {
-        plugins: [tailwindcss()],
-        server: {
-            watch: {
-                usePolling: true,
-            },
-        },
-    },
-    runtimeConfig: {
-        sanityToken: process.env.SANITY_API_TOKEN || "",
-        public: {
-            sanityProjectId:
-                process.env.NUXT_PUBLIC_SANITY_PROJECT_ID || "o9tmumau",
-            sanityDataset:
-                process.env.NUXT_PUBLIC_SANITY_DATASET || "production",
-            sanityApiVersion:
-                process.env.NUXT_PUBLIC_SANITY_API_VERSION || "2025-11-09",
-        },
-    },
-    alias: {
-        "@app": "./app",
-        "@assets": "./app/assets",
-        "@components": "./app/components",
-        "@composables": "./app/composables",
-        "@utils": "./app/utils",
-    },
-    app: {
-        head: {
-            htmlAttrs: { lang: "en" },
-            link: [
-                { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-                { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-                {
-                    rel: "icon",
-                    type: "image/png",
-                    sizes: "96x96",
-                    href: "/favicon-96x96.png",
-                },
-                {
-                    rel: "apple-touch-icon",
-                    sizes: "180x180",
-                    href: "/apple-touch-icon.png",
-                },
-                { rel: "manifest", href: "/site.webmanifest" },
-            ],
-        },
-    },
-    components: [
+  routeRules: {
+    '/': { prerender: true }
+  },
+  vite: {
+    plugins: [tailwindcss()],
+    server: {
+      watch: {
+        usePolling: true
+      }
+    }
+  },
+  runtimeConfig: {
+    sanityToken: process.env.SANITY_API_TOKEN || '',
+    public: {
+      sanityProjectId: process.env.NUXT_PUBLIC_SANITY_PROJECT_ID || 'o9tmumau',
+      sanityDataset: process.env.NUXT_PUBLIC_SANITY_DATASET || 'production',
+      sanityApiVersion:
+        process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2025-11-09'
+    }
+  },
+  alias: {
+    '@app': './app',
+    '@assets': './app/assets',
+    '@components': './app/components',
+    '@composables': './app/composables',
+    '@utils': './app/utils'
+  },
+  app: {
+    head: {
+      htmlAttrs: { lang: 'en' },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         {
-            path: "~/components",
-            pathPrefix: false,
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '96x96',
+          href: '/favicon-96x96.png'
         },
-    ],
-    compatibilityDate: "2025-07-15",
-    devtools: {
-        enabled: true,
-    },
-    modules: ["@primevue/nuxt-module", "@nuxtjs/google-fonts"],
-    googleFonts: {
-        families: {
-            Montserrat: [400, 500, 600, 700],
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png'
         },
-    },
-    primevue: {
-        options: {
-            theme: {
-                preset: Aura,
-            },
-        },
-    },
-    css: ["~/assets/css/main.css"],
-    vue: {
-        propsDestructure: true,
-    },
+        { rel: 'manifest', href: '/site.webmanifest' }
+      ]
+    }
+  },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false
+    }
+  ],
+  compatibilityDate: '2025-07-15',
+  devtools: {
+    enabled: true
+  },
+  modules: ['@primevue/nuxt-module', '@nuxtjs/google-fonts'],
+  googleFonts: {
+    families: {
+      Montserrat: [400, 500, 600, 700]
+    }
+  },
+  primevue: {
+    options: {
+      theme: {
+        preset: Aura
+      }
+    }
+  },
+  css: ['~/assets/css/main.css'],
+  vue: {
+    propsDestructure: true
+  }
 });
