@@ -1,17 +1,17 @@
-@import "tailwindcss";
-@import "tailwindcss-primeui";
-@import "primeicons/primeicons.css";
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+@import 'primeicons/primeicons.css';
 
 @theme static {
-    --font-sans: "Montserrat", sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
 }
 
 /* Prevent FOUC - hide until hydrated */
 html:not(.hydrated) body {
-    opacity: 0;
+  opacity: 0;
 }
 
 html.hydrated body {
-    opacity: 1;
-    transition: opacity 0.2s ease-in;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
 }

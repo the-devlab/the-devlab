@@ -1,6 +1,6 @@
-import type { LanguageCodes } from "@/types/types";
+import type { LanguageCodes } from '@/types/types';
 
 export const languages = ref<LanguageCodes[]>([
-    { name: "English", code: "en" },
-    { name: "Bulgarian", code: "bg" },
+  { name: 'English', code: 'en' },
+  { name: 'Bulgarian', code: 'bg' }
 ]);
